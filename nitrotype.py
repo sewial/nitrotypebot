@@ -91,7 +91,7 @@ def qs(s):
 u = input("Username: ")
 p = input("Password: ")
 wpm = qs("WPM: ")
-l = qs("How many times to loop? ")
+l = qs("How many races? ")
 driver.get("https://www.nitrotype.com/login")
 login(u, p)
 time.sleep(1)
