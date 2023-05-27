@@ -66,22 +66,19 @@ def loop(l, wpm):
             pass
         #wait for input box to exist
         WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div/main/div/section/div/div[3]/div[1]/div[1]/div[2]/div[1]")))
-        typing(wpm)
-        if x == l:
-            print(" ")
-        else:
-            try:
-                driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[1]/div[1]/div[3]/div/div[2]/button").click()
-            except:
-                pass
-            time.sleep(3)
-            try:
-                #in case of disqualification
-                driver.find_element(by=By.XPATH, value="/html/body/div[3]/div/div[1]/div/div/div/div[2]/button").click()
-                print("Race failed")
-            except:
-                print(f"Finished race {x+1}")
-            driver.get("https://www.nitrotype.com/race")
+        typing(wpm)    
+        try:
+            driver.find_element(by=By.XPATH, value="/html/body/div[1]/div[1]/div[1]/div[3]/div/div[2]/button").click() #close reward popup
+        except:
+            pass
+        time.sleep(3)
+        try:
+            #in case of disqualification
+            driver.find_element(by=By.XPATH, value="/html/body/div[3]/div/div[1]/div/div/div/div[2]/button").click()
+            print("Race failed")
+        except:
+            print(f"Finished race {x+1}")
+        driver.get("https://www.nitrotype.com/race")
         
 def qs(s):
     try:
