@@ -47,8 +47,10 @@ def typing(wpm):
     box = driver.find_element(by=By.XPATH, value="/html/body/div[1]/div/main/div/section/div/div[3]/div[1]/div[1]/div[2]/input")
     if wpm >= 100:
         delay = float(8.7/wpm)
-    else:
+    elif wpm >= 70 and wpm <= 99:
         delay = float(9.3/wpm)
+    else:
+        delay = float(9.7/wpm)
     for i in text:
         time.sleep(delay + (delay/random.randint(12, 14)) - (delay/random.randint(12, 14)))
         if i.isspace():
